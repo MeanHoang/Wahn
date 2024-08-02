@@ -1,0 +1,22 @@
+create database wahn;
+USE wahn;
+
+CREATE TABLE users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_username VARCHAR(50) NOT NULL UNIQUE,
+    user_password VARCHAR(255) NOT NULL,
+    user_firstname VARCHAR(50) NOT NULL UNIQUE,
+    user_surname VARCHAR(50) NOT NULL UNIQUE,
+    user_email VARCHAR(100) NOT NULL UNIQUE,
+    user_address VARCHAR(100) NOT NULL UNIQUE
+);
+
+INSERT INTO users (user_username, user_password, user_firstname, user_surname, user_email, user_address) 
+VALUES 
+('john_doe', 'password123', 'John', 'Doe', 'john.doe@example.com', '123 Elm Street'),
+('jane_smith', 'password456', 'Jane', 'Smith', 'jane.smith@example.com', '456 Oak Street'),
+('alice_jones', 'password789', 'Alice', 'Jones', 'alice.jones@example.com', '789 Maple Avenue'),
+('bob_brown', 'password101', 'Bob', 'Brown', 'bob.brown@example.com', '101 Pine Road'),
+('charlie_white', 'password202', 'Charlie', 'White', 'charlie.white@example.com', '202 Birch Boulevard');
+
+select * from users;
