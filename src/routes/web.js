@@ -1,16 +1,14 @@
 const express = require('express')
+const { getHomepage, getTest, getTestEjs } = require('../controllers/homeController');
 const router = express.Router()
 
-router.get('/', (req, res) => {
-    res.send('Hello World! Test nodemon')
-})
+//router.Method('/route', handler)
+//Mthed: get, set
 
-router.get('/test', (req, res) => {
-    res.send('Test check routes')
-})
+router.get('/', getHomepage)
 
-router.get('/test-ejs', (req, res) => {
-    res.render('sample.ejs')
-})
+router.get('/test', getTest)
 
-module.exports = router  //exprot deafaul
+router.get('/test-ejs', getTestEjs)
+
+module.exports = router  //export deafaul
