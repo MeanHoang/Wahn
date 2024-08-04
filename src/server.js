@@ -16,15 +16,6 @@ configViewEngine(app);
 //declare routes
 app.use('/', webRoutes);
 
-// A simple SELECT query
-connection.query(
-    'select * from users',
-    function (err, results, fields) {
-        console.log(results); // results contains rows returned by server
-        console.log(fields); // fields contains extra meta data about results, if available
-    }
-);
-
 app.listen(port, hostname, () => {
     console.log(`Example app listening on port ${port}`)
 })
