@@ -1,7 +1,10 @@
 const connection = require('../config/database');
+const { getAllUser } = require('../services/CRUDService');
 
-const getHomepage = (req, res) => {
-    return res.render('home.ejs')
+const getHomepage = async (req, res) => {
+    let results = await getAllUser();
+    console.log("check results", results)
+    return res.render('home.ejs', { listUsers: results })
 }
 
 const getTest = (req, res) => {
@@ -18,7 +21,7 @@ const getCreatePage = (req, res) => {
 
 const postCreateUser = async (req, res) => {
     console.log("check req.body: ", req.body);
-
+    //using attrute name 
     let username = req.body.username;
     let password = req.body.password;
     let firstName = req.body.firstName;

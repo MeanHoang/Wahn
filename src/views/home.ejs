@@ -55,33 +55,30 @@
     <div class="table-container">
         <div class="title">List Users</div>
         <table id="customers">
-            <tr>
-                <th>ID</th>
-                <th>Username</th>
-                <th>Password</th>
-                <th>Firstname</th>
-                <th>Surname</th>
-                <th>Email</th>
-                <th>Address</th>
-            </tr>
-            <tr>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
-                <td>Germany</td>
-            </tr>
-            <tr>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
-                <td>Germany</td>
-            </tr>
+            <%= JSON.stringify(listUsers) %>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Firstname</th>
+                    <th>Surname</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Maria</td>
+                    <td>Germany</td>
+                    <td>Alfreds</td>
+                    <td>Maria</td>
+                    <td>Germany</td>
+                    <td>Germany</td>
+                    <td>
+                        <button>Edit</button>
+                        <button>Delete</button>
+                    </td>
+                </tr>
 
         </table>
     </div>
