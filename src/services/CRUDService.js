@@ -5,6 +5,7 @@ const getAllUser = async () => {
     return results;
 }
 
+
 module.exports = {
     getAllUser
 }

@@ -1,0 +1,58 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit user</title>
+    <link rel="stylesheet" href="../public/css/style.css">
+</head>
+
+<body>
+    <%= JSON.stringify(user)%>
+        <div class="topnav">
+            <a href="/">Home</a>
+            <a href="/create">Create user</a>
+        </div>
+
+        <div class="form-add-new">
+            <form action="/update-user" method="POST">
+                <fieldset>
+                    <legend>Update a user:</legend>
+                    <div class="input-group d-none">
+                        <label>ID: </label>
+                        <input type="text" value="<%=user.user_id%>" name="id" />
+                    </div>
+                    <div class="input-group">
+                        <label>Username: </label>
+                        <input type="text" value="<%=user.user_username%>" name="username" />
+                    </div>
+                    <div class="input-group">
+                        <label>Password: </label>
+                        <input type="text" value="<%=user.user_password%>" name="password" />
+                    </div>
+                    <div class="input-group">
+                        <label>First name: </label>
+                        <input type="text" value="<%=user.user_firstname%>" name="firstName" />
+                    </div>
+                    <div class="input-group">
+                        <label>Surname: </label>
+                        <input type="text" value="<%=user.user_surname%>" name="surName" />
+                    </div>
+                    <div class="input-group">
+                        <label>Email: </label>
+                        <input type="text" value="<%=user.user_email%>" name="email" />
+                    </div>
+                    <div class="input-group">
+                        <label>Address: </label>
+                        <input type="text" value="<%=user.user_address%>" name="address" />
+                    </div>
+
+                    <div>
+                        <button>Save</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+</body>
+
+</html>
