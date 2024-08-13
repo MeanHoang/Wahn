@@ -1,5 +1,5 @@
 const connection = require('../config/database');
-const { getAllUser } = require('../services/CRUDService');
+const { getAllUser, updateUserByID } = require('../services/CRUDService');
 
 const getHomepage = async (req, res) => {
     let results = await getAllUser();
@@ -71,15 +71,11 @@ const postUpdateUser = async (req, res) => {
     let email = req.body.email;
     let address = req.body.address;
     let id = req.body.id;
-    let [results, fields] = await connection.query(
-        `UPDATE INTO users (user_username, user_password, user_firstname, user_surname, user_email, user_address) 
-        VALUES (?, ?, ?, ?, ?, ?)`,
-        [username, password, firstName, surName, email, address]
-    );
 
-    res.send('Created user succeed !');
+    await updateUserByID(username, password, firstName, surName, email, address, id)
+    res.redirect('/');
+    // res.send('Update user succeed !');
 }
-
 
 module.exports = {
     getHomepage,
