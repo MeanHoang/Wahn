@@ -123,7 +123,11 @@
                         </td>
                         <td>
                             <a href="/update/<%= user.user_id %>">Edit</a>
-                            <button>Delete</button>
+
+                            <form action="/delete-user/<%= user.user_id %>" method="POST">
+                                <button>Delete</button>
+                            </form>
+
                         </td>
                     </tr>
                     <% }); %>

@@ -1,5 +1,8 @@
 const connection = require('../config/database');
-const { getAllUser, updateUserByID } = require('../services/CRUDService');
+const {
+    getUserById, getAllUser, updateUserByID,
+    deleteUserByID
+} = require('../services/CRUDService');
 
 const getHomepage = async (req, res) => {
     let results = await getAllUser();
@@ -55,9 +58,7 @@ const postCreateUser = async (req, res) => {
 const getUpdatePage = async (req, res) => {
     const userID = req.params.user_id;
 
-    let [results, fields] = await connection.query('SELECT * FROM users where user_id = ?', [userID]);
-
-    let user = results && results.length > 0 ? results[0] : {};
+    let user = await getUserById(userID);
     res.render('update.ejs', { user: user });
 }
 
@@ -77,6 +78,20 @@ const postUpdateUser = async (req, res) => {
     // res.send('Update user succeed !');
 }
 
+const postDeleteUser = async (req, res) => {
+    const userID = req.params.user_id;
+    let user = await getUserById(userID);
+
+    res.render('delete.ejs', { user: user })
+}
+
+const postHandleRemoveUser = async (req, res) => {
+    let id = req.body.id;
+    console.log("check req.body: ", req.body);
+    console.log("check id: ", id);
+    await deleteUserByID(id);
+    res.redirect('/');
+}
 module.exports = {
     getHomepage,
     getTest,
@@ -84,5 +99,7 @@ module.exports = {
     getCreatePage,
     postCreateUser,
     getUpdatePage,
-    postUpdateUser
+    postUpdateUser,
+    postDeleteUser,
+    postHandleRemoveUser
 }
